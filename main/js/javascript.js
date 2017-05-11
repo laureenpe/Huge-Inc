@@ -18,7 +18,7 @@ var currentScroll= window.pageYOffset  || document.body.scrollTop; //nos devolve
 
 //guardar la ultima posicion y compararla con la anterior
 var lastScrollTop = 0;
-window.addEventListener("scrill", function(){
+window.addEventListener("scroll", function(){
     var currentScroll= window.pageYOffset || document.body.scrollTop;
     if(currentScroll > lastScrollTop){
         document.getElementById("nav-header").classList.remove("header-in");
