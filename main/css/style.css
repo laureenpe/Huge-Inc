@@ -74,9 +74,14 @@ con esto conseguiras crear la equis.
 .open .menu:after {
     top: 0 !important;
     background: #fff !important;
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
 }
+.open .menu:before {
+    top: 0 !important;
+    background: #fff !important;
+    transform: rotate(-45deg);
 
+}
 nav .nav-background {
     top: opx;
     opacity: 0;
