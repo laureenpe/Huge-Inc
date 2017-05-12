@@ -1,24 +1,28 @@
-nav{
+nav {
     top: 0;
     left: 0;
     width: 100%;
-    color: blueviolet; 
-    height:80px;
-    z-index:1000; /*propiedad de hacer capas, */
-    margin-top:0;
+    color: blueviolet;
+    height: 80px;
+    z-index: 1000;
+    /*propiedad de hacer capas, */
+    margin-top: 0;
     position: fixed;
     padding-top: 0px;
-    background:none;
+    background: none;
     transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
 }
+
+
 /* Menu bar logo and menu styles general */
 
 .logo,
-.menu{
+.menu {
     position: absolute;
     z-index: 2000;
 }
-.logo{
+
+.logo {
     left: 0;
     top: -4px;
     width: 70px;
@@ -29,8 +33,11 @@ nav{
     background-repeat: no-repeat;
     background-image: url(../img/icon.png)
 }
+
+
 /* Ahora necesitamos armar nuestra hamburguesa*/
-.menu{
+
+.menu {
     top: 0;
     right: 0;
     height: 4px;
@@ -38,27 +45,34 @@ nav{
     text-align: right;
     margin: 2rem 2rem;
     background: #ec008c;
-    transition: all 0.3s; 
+    transition: all 0.3s;
 }
+
 
 /* before y after son pseudo-elementos que puede añadir contenido
 antes y despues del contenido original de un elemento en este caso menu,
 de esta manera hemos "clonado" el original y hemos creado la partes faltantes,
 tendran el mismo estilo que el original.*/
 
+
 /*ahora tenemos que clonar todos los detalles igual que el original,
 la hamburguesa tiene un hover que replicamos:*/
+
 #toggle:hover .menu:before {
     top: -9px;
 }
-#toggle:hover .menu:after{
+
+#toggle:hover .menu:after {
     top: 9px;
 }
+
+
 /*le decimos q cuando el mouse pase por toggle entonces queremos que afecte
 a after y befote, y mueva la posicion 1 pixel mas.
 
 /*ahora que tenemos el hover, tambien al hacer click, necesitamos
 cambiar el estilo de la hamburgesa y convertirla en una equis.*/
+
 
 /* Al hacer click agregaremos una clase llamada .open, entonces le 
 estamos diciendo, cuando tenga la clase .open afecta a la clase
@@ -67,21 +81,23 @@ Para empezar al menu original quitale el color del bg, luego afecta al
 :after y before y rota su posicion en 45 grados y su top posicionalo en 0
 con esto conseguiras crear la equis.
 !important es una regla de css que impactara en el comportamiento de estilo si o si css tomara como primordial esta regla*/
+
 .open .menu {
     background: none !important;
-
 }
+
 .open .menu:after {
     top: 0 !important;
     background: #fff !important;
     transform: rotate(45deg);
 }
+
 .open .menu:before {
     top: 0 !important;
     background: #fff !important;
     transform: rotate(-45deg);
-
 }
+
 nav .nav-background {
     top: opx;
     opacity: 0;
@@ -96,9 +112,10 @@ nav .nav-background {
 
 nav.open .nav-background {
     opacity: 1;
-    background-color: rgba(217,40,130,0.9)!important;
+    background-color: rgba(217, 40, 130, 0.9)!important;
     transition: background-color 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
 }
+
 nav.open {
     height: 100%;
     transition: none;
@@ -107,7 +124,7 @@ nav.open {
     -webkit-transition: none;
 }
 
-nav ul{
+nav ul {
     top: -10%;
     padding: 0;
     opacity: 0;
@@ -119,26 +136,31 @@ nav ul{
     transform: perspective(600px) rotateX('10deg');
     transition: all 0.5s cubic-bezier(0.7, 0, 0.36, 0.63);
 }
-nav ul li{
+
+nav ul li {
     visibility: hidden;
 }
 
-nav ul li a{
+nav ul li a {
     color: white;
     width: 100%;
     display: block;
     padding: 8px 0 0;
     letter-spacing: -0-06em;
-
 }
+
+
 /*asi se agrega color al anchor dentro de la lista y al hacer hover le cambiamos el color a fucsia y el background completo en blanco.
 */
-nav ul li a:hover{
+
+nav ul li a:hover {
     color: #ec008c;
     background-color: white;
 }
 
+
 /*le decimos al nav ul y nav ul li que cuando tenga .open se muestre de nuevo*/
+
 nav.open ul {
     top: 0;
     opacity: 1;
@@ -146,31 +168,38 @@ nav.open ul {
     visibility: visible;
     transform: perspective(600px) rotateX('0deg');
 }
-nav.open ul li{
+
+nav.open ul li {
     color: #fff;
     font-size: 60px;
     visibility: visible !important;
 }
 
-nav.header-in{
-    background-color: rgba(217,40,130,0.9);
+nav.header-in {
+    background-color: rgba(217, 40, 130, 0.9);
 }
+
 
 /*Ahora al subir y cambiar el color del menu, debemos pasar el logo
 y menu a blanco, usamos .open para el click pero para subir haremos
 una clase llamada .solid:
-Este estilo se agregagara al subir le cambiara el color a la hamburguesa
+Este estilo se agregara al subir le cambiara el color a la hamburguesa
 */
+
 .solid #toggle .menu {
     background: #fff;
 }
-.solid #toggle .menu:after{
+
+.solid #toggle .menu:after {
     background-color: #fff;
 }
-.solid #toggle .menu:before{
+
+.solid #toggle .menu:before {
     background-color: #fff;
 }
-.menu:before, .menu:after{
+
+.menu:before,
+.menu:after {
     content: '';
     display: block;
     width: 24px;
@@ -179,16 +208,23 @@ Este estilo se agregagara al subir le cambiara el color a la hamburguesa
     position: absolute;
     z-index: -1;
 }
-.menu:before{
+
+.menu:before {
     top: -8px;
 }
-.menu:after{
+
+.menu:after {
     top: 8px;
 }
 
-nav.solid #logo .logo {
-    background-image: url(../img/icon/logo_white.png);
+
+/*nav.solid #logo .logo ASI NO SE LLAMABA XQ?*/
+
+nav.open #logo .logo {
+    background-image: url(../img/logo_white.png);
 }
+
+
 /*vamos a javascript
 luego la clase creada tendrá estilos,
 Javascript style toggle for appear and desappear scroll of webpage*/
